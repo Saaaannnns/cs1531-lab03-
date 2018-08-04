@@ -16,7 +16,7 @@ def count_char(text):
         count[char] = text.count(char)
     
     for char in count:
-        print(char ,count[char])
+        print(char, count[char])
 
 
 def count_char_insensitive(text):
@@ -28,7 +28,7 @@ def count_char_insensitive(text):
         count[char] = lower.count(char)
     
     for char in count:
-        print(char,count[char])        
+        print(char, count[char])        
 
 
 # bonus task:
@@ -37,9 +37,13 @@ def count_char_ordered(text):
     # add your code here
     count = {}
     lower = text.lower()
-    start = lower[0]
-    for char in lower:
-        count[char] = lower.count(char)
+    R_lower = ''
+    for i in range(len(lower)-1, -1, -1):
+        R_lower += lower[i]
+    
+    start = R_lower[0]
+    for char in R_lower:
+        count[char] = R_lower.count(char)
     
     largest = count[start]
     while len(count) > 0:
@@ -48,7 +52,7 @@ def count_char_ordered(text):
             if count[char] >= largest:
                 largest = count[char]
                 target = char
-        print(target,largest)
+        print(target, largest)
         del count[target]
         
         for char in count:
@@ -64,5 +68,5 @@ text2 = 'HellO,WorLd!'
 # testing exercise 2
 #count_char(text2)
 #count_char_insensitive(text2)
-count_char_ordered(text2)
+count_char_ordered(text1)
 
