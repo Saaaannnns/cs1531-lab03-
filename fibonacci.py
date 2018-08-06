@@ -23,10 +23,17 @@ fib_dict = {
 # Do not print it from this function
 def fib_sequence(num):
     # to be completed
-    for i in range(3,num):
-        fib_dict[i+1] = fib_dict[i] + fib_dict[i-1]
-        i = i + 1
+    if num not in fib_dict:
+        fib_dict[num] = fib_sequence(num-1) + fib_sequence(num-2)
+    #for i in range(3,num):
+     #   fib_dict[i+1] = fib_dict[i] + fib_dict[i-1]
+      #  i = i + 1
     
     return fib_dict[num]
+    #return fib_dict[num]
 
 #write code to accept user input, call the function and print the result
+if __name__ == '__main__':
+    num = int(input('Input: '))
+    output = fib_sequence(num)
+    print('Output:', output)
